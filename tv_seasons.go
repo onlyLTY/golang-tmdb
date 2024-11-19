@@ -120,7 +120,14 @@ func (c *Client) GetTVSeasonDetails(
 		c.apiKey,
 		options,
 	)
-	tvSeasonDetails := TVSeasonDetails{}
+	tvSeasonDetails := TVSeasonDetails{
+		TVSeasonCreditsAppend: &TVSeasonCreditsAppend{
+			Credits: &TVSeasonCredits{},
+		},
+		TVAggregateCreditsAppend: &TVAggregateCreditsAppend{
+			AggregateCredits: &TVAggregateCredits{},
+		},
+	}
 	if err := c.get(tmdbURL, &tvSeasonDetails); err != nil {
 		return nil, err
 	}

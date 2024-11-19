@@ -122,7 +122,9 @@ func (c *Client) GetSearchMovies(
 		url.QueryEscape(query),
 		options,
 	)
-	searchMovies := SearchMovies{}
+	searchMovies := SearchMovies{
+		SearchMoviesResults: &SearchMoviesResults{},
+	}
 	if err := c.get(tmdbURL, &searchMovies); err != nil {
 		return nil, err
 	}
@@ -217,7 +219,9 @@ func (c *Client) GetSearchTVShow(
 		url.QueryEscape(query),
 		options,
 	)
-	searchTVShows := SearchTVShows{}
+	searchTVShows := SearchTVShows{
+		SearchTVShowsResults: &SearchTVShowsResults{},
+	}
 	if err := c.get(tmdbURL, &searchTVShows); err != nil {
 		return nil, err
 	}

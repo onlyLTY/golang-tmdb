@@ -167,7 +167,24 @@ func (c *Client) GetMovieDetails(
 		c.apiKey,
 		options,
 	)
-	movieDetails := MovieDetails{}
+	movieDetails := MovieDetails{
+		MovieAlternativeTitlesAppend: &MovieAlternativeTitlesAppend{
+			AlternativeTitles: &MovieAlternativeTitles{},
+		},
+		MovieCreditsAppend: &MovieCreditsAppend{
+			Credits: struct {
+				*MovieCredits
+			}{},
+		},
+		MovieTranslationsAppend: &MovieTranslationsAppend{
+			Translations: &MovieTranslations{},
+		},
+		MovieReleaseDatesAppend: &MovieReleaseDatesAppend{
+			ReleaseDates: &MovieReleaseDates{
+				MovieReleaseDatesResults: &MovieReleaseDatesResults{},
+			},
+		},
+	}
 	if err := c.get(tmdbURL, &movieDetails); err != nil {
 		return nil, err
 	}

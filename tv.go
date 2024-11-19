@@ -228,7 +228,27 @@ func (c *Client) GetTVDetails(
 		c.apiKey,
 		options,
 	)
-	tvDetails := TVDetails{}
+	tvDetails := TVDetails{
+		TVCreditsAppend: &TVCreditsAppend{
+			Credits: struct {
+				*TVCredits
+			}{},
+		},
+		TVAggregateCreditsAppend: &TVAggregateCreditsAppend{
+			AggregateCredits: &TVAggregateCredits{},
+		},
+		TVAlternativeTitlesAppend: &TVAlternativeTitlesAppend{
+			AlternativeTitles: &TVAlternativeTitles{},
+		},
+		TVTranslationsAppend: &TVTranslationsAppend{
+			Translations: &TVTranslations{},
+		},
+		TVContentRatingsAppend: &TVContentRatingsAppend{
+			ContentRatings: &TVContentRatings{
+				TVContentRatingsResults: &TVContentRatingsResults{},
+			},
+		},
+	}
 	if err := c.get(tmdbURL, &tvDetails); err != nil {
 		return nil, err
 	}
