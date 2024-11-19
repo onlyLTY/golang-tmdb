@@ -238,7 +238,9 @@ func (c *Client) GetTVDetails(
 			AggregateCredits: &TVAggregateCredits{},
 		},
 		TVAlternativeTitlesAppend: &TVAlternativeTitlesAppend{
-			AlternativeTitles: &TVAlternativeTitles{},
+			AlternativeTitles: &TVAlternativeTitles{
+				TVAlternativeTitlesResults: &TVAlternativeTitlesResults{},
+			},
 		},
 		TVTranslationsAppend: &TVTranslationsAppend{
 			Translations: &TVTranslations{},
