@@ -174,7 +174,9 @@ func (c *Client) GetMovieDetails(
 		MovieCreditsAppend: &MovieCreditsAppend{
 			Credits: struct {
 				*MovieCredits
-			}{},
+			}{
+				MovieCredits: &MovieCredits{},
+			},
 		},
 		MovieTranslationsAppend: &MovieTranslationsAppend{
 			Translations: &MovieTranslations{},
