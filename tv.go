@@ -232,7 +232,9 @@ func (c *Client) GetTVDetails(
 		TVCreditsAppend: &TVCreditsAppend{
 			Credits: struct {
 				*TVCredits
-			}{},
+			}{
+				TVCredits: &TVCredits{},
+			},
 		},
 		TVAggregateCreditsAppend: &TVAggregateCreditsAppend{
 			AggregateCredits: &TVAggregateCredits{},

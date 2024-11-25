@@ -157,7 +157,9 @@ func (c *Client) GetSearchMulti(
 		url.QueryEscape(query),
 		options,
 	)
-	searchMulti := SearchMulti{}
+	searchMulti := SearchMulti{
+		SearchMultiResults: &SearchMultiResults{},
+	}
 	if err := c.get(tmdbURL, &searchMulti); err != nil {
 		return nil, err
 	}
