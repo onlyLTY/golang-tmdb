@@ -60,7 +60,9 @@ func (c *Client) GetSearchCollections(
 		url.QueryEscape(query),
 		options,
 	)
-	searchCollections := SearchCollections{}
+	searchCollections := SearchCollections{
+		SearchCollectionsResults: &SearchCollectionsResults{},
+	}
 	if err := c.get(tmdbURL, &searchCollections); err != nil {
 		return nil, err
 	}
